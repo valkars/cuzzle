@@ -14,14 +14,14 @@ use Psr\Http\Message\RequestInterface;
  */
 class CurlFormatterMiddleware
 {
-    protected $logger;
+    protected LoggerInterface $logger;
 
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
 
-    public function __invoke(callable $handler)
+    public function __invoke(callable $handler): \Closure
     {
         return function (RequestInterface $request, array $options) use ($handler) {
             $curlCommand = (new CurlFormatter())->format($request, $options);

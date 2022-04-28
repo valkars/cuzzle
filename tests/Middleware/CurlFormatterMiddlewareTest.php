@@ -1,5 +1,7 @@
 <?php
 
+namespace Middleware;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
@@ -8,7 +10,7 @@ use Namshi\Cuzzle\Middleware\CurlFormatterMiddleware;
 
 class CurlFormatterMiddlewareTest extends \PHPUnit\Framework\TestCase
 {
-    public function testGet()
+    public function testGet(): void
     {
         $mock = new MockHandler([new Response(204)]);
         $handler = HandlerStack::create($mock);
@@ -22,6 +24,6 @@ class CurlFormatterMiddlewareTest extends \PHPUnit\Framework\TestCase
         $handler->after('cookies', new CurlFormatterMiddleware($logger));
         $client = new Client(['handler' => $handler]);
 
-        $client->get('http://google.com');
+        $client->get('https://google.com');
     }
 }

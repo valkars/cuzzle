@@ -2,11 +2,12 @@
   "name": "namshi/cuzzle",
   "description": "Get the cURL shell command from a Guzzle request",
   "require": {
-    "php": ">=7.3",
-    "guzzlehttp/guzzle": "^6.0",
+    "php": "^8.1",
+    "guzzlehttp/guzzle": "^6.0|^7.0",
     "psr/log": "^1.0"
   },
   "require-dev": {
+    "roave/security-advisories": "dev-latest",
     "phpunit/phpunit": "^9.3.8"
   },
   "autoload": {
